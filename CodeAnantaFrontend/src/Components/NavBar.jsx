@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import WindowIcon from '@mui/icons-material/Window';
 import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom';
 
 function NavBar({searchBoxOpened, setSearchBoxOpened}) {
 
@@ -8,13 +9,13 @@ function NavBar({searchBoxOpened, setSearchBoxOpened}) {
   return (
 
     <>
-        <div className='container relative flex justify-center items-center mt-5 gap-5'>
-            <p className='font-semibold  text-2xl'>Code<span className='text-purple-400'>Ananta</span></p>
+        <div className='container relative bg-black backdrop-blur-xl  flex justify-center items-center mt-5 gap-5'>
+            <Link to="/" className='font-semibold  text-2xl'>Code<span className='text-purple-400'>Ananta</span></Link>
             <div className='menu flex gap-8 justify-evenly items-center'>
                 <a href="/" className='hover:bg-gray-900 p-2 rounded-2xl'>Home</a>
                 <a href="/Courses" className='hover:bg-gray-900 p-2 rounded-2xl'>Courses</a>
                 <a href="/Tutorials" className='hover:bg-gray-900 p-2 rounded-2xl'>Tutorials</a>
-                <a href="/Blog" className='hover:bg-gray-900 p-2 rounded-2xl'>Blogs</a>
+                <a href="/Blogs" className='hover:bg-gray-900 p-2 rounded-2xl'>Blogs</a>
                 <a href="/Notes" className='hover:bg-gray-900 p-2 rounded-2xl'>Notes</a>
                 <a href="/Contact" className='hover:bg-gray-900 p-2 rounded-2xl'>Contact</a>
             </div>
@@ -39,6 +40,7 @@ function NavBar({searchBoxOpened, setSearchBoxOpened}) {
             </div>
 
         </div>
+        
 
     </>
   )

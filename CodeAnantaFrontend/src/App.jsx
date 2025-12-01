@@ -6,16 +6,35 @@ import Home from './Components/Home'
 import NavBar from './Components/NavBar'
 import CloseIcon from '@mui/icons-material/Close';
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Blogs from './Components/Blogs';
+import Footer from './Components/Footer';
+
 
 function App() {
    const [searchBoxOpened, setSearchBoxOpened] = useState(false);
 
+   const router = createBrowserRouter([
+    {
+        path:"/",
+        element: <><NavBar searchBoxOpened={searchBoxOpened} setSearchBoxOpened={setSearchBoxOpened}/><Home/><Footer/></>
+    },
+    {
+        path:"/Blogs",
+        element: <><NavBar searchBoxOpened={searchBoxOpened} setSearchBoxOpened={setSearchBoxOpened} /><Blogs/><Footer/></>
+    },
+    {
+        path:"/Courses",
+        element:<><NavBar searchBoxOpened={searchBoxOpened} setSearchBoxOpened={setSearchBoxOpened} /><Footer/></>
+    }
+   ])
+
 
   return (
     <>
-      <div className='relative'>
-           <NavBar searchBoxOpened={searchBoxOpened} setSearchBoxOpened={setSearchBoxOpened}/>
-           <Home/>
+      <div>
+
+          <RouterProvider router={router}/>
       </div>
 
         {
