@@ -9,6 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Blogs from './Components/Blogs';
 import Footer from './Components/Footer';
+import Course from './Components/Courses/Course';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
     },
     {
         path:"/Courses",
-        element:<><NavBar searchBoxOpened={searchBoxOpened} setSearchBoxOpened={setSearchBoxOpened} /><Footer/></>
+        element:<><NavBar searchBoxOpened={searchBoxOpened} setSearchBoxOpened={setSearchBoxOpened} /><Course/><Footer/></>
     }
    ])
 

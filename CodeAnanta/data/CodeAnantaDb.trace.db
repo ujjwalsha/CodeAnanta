@@ -482,3 +482,211 @@ UPDATE BLOG set CONTENT  = 'When building applications with Next.js and MongoDB,
 2025-12-01 17:32:53.075012+05:30 jdbc[23]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "UPDATE BLOG set CONTENT  = 'When building applications with Next.js and MongoDB, managing the database connection efficiently is essential. This blog post will explore the lib/mongodb.js code snippet provided above, explaining its role and why it’s structured that way. We’ll also discuss why it'[*]s important to manage MongoDB connections properly, particularly in Next.js projects.This file sets up and exports a MongoDB client connection promise. The client is used throughout the Next.js application to interact with the MongoDB database. Here's a breakdown of how it works:The lib/mongodb.js file is a crucial part of any Next.js project involving MongoDB. It ensures that your application manages database connections efficiently, preventing memory leaks and optimizing resource usage. By understanding this connection pattern, you can build scalable and robust applications that leverage MongoDB effectively.' where ID = 2"; SQL statement:
 UPDATE BLOG set CONTENT  = 'When building applications with Next.js and MongoDB, managing the database connection efficiently is essential. This blog post will explore the lib/mongodb.js code snippet provided above, explaining its role and why it’s structured that way. We’ll also discuss why it's important to manage MongoDB connections properly, particularly in Next.js projects.This file sets up and exports a MongoDB client connection promise. The client is used throughout the Next.js application to interact with the MongoDB database. Here's a breakdown of how it works:The lib/mongodb.js file is a crucial part of any Next.js project involving MongoDB. It ensures that your application manages database connections efficiently, preventing memory leaks and optimizing resource usage. By understanding this connection pattern, you can build scalable and robust applications that leverage MongoDB effectively.' where ID = 2 [42000-232]
+2025-12-01 23:04:07.160566+05:30 jdbc[103]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 16 more
+2025-12-05 14:26:21.409536+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOTES_DETAIL" not found; SQL statement:
+INSERT INTO notes (ID, NOTES_DETAIL) VALUES (1, 'This is a sample note for SQL basics.') [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:786)
+	at org.h2.command.Parser.parseColumn(Parser.java:1171)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1156)
+	at org.h2.command.Parser.parseInsert(Parser.java:1530)
+	at org.h2.command.Parser.parsePrepared(Parser.java:698)
+	at org.h2.command.Parser.parse(Parser.java:581)
+	at org.h2.command.Parser.parse(Parser.java:556)
+	at org.h2.command.Parser.prepareCommand(Parser.java:484)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-12-05 14:26:21.426097+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOTES_DETAIL" not found; SQL statement:
+INSERT INTO notes (ID, NOTES_DETAIL) VALUES (2, 'Note about Python programming.') [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:786)
+	at org.h2.command.Parser.parseColumn(Parser.java:1171)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1156)
+	at org.h2.command.Parser.parseInsert(Parser.java:1530)
+	at org.h2.command.Parser.parsePrepared(Parser.java:698)
+	at org.h2.command.Parser.parse(Parser.java:581)
+	at org.h2.command.Parser.parse(Parser.java:556)
+	at org.h2.command.Parser.prepareCommand(Parser.java:484)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-12-05 14:29:12.181435+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "101 (QUESTIONS: ""QUESTION_ID"" UUID NOT NULL)"; SQL statement:
+INSERT INTO QUESTIONS (QUESTION_ID, COURSE_URL, LEVEL, NOTES, QUESTION_NAME, ID, NOTES_ID)
+VALUES (101, 'http://example.com/sql', 'Beginner', 'Basic SELECT statement question', 'What is the SELECT statement?', 1, 1) [22018-232]
+2025-12-05 14:29:22.621179+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1 (QUESTIONS: ""QUESTION_ID"" UUID NOT NULL)"; SQL statement:
+INSERT INTO QUESTIONS (QUESTION_ID, COURSE_URL, LEVEL, NOTES, QUESTION_NAME, ID, NOTES_ID)
+VALUES (1, 'http://example.com/sql', 'Beginner', 'Basic SELECT statement question', 'What is the SELECT statement?', 1, 1) [22018-232]
+2025-12-05 14:30:38.528039+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1 (QUESTIONS: ""ID"" UUID NOT NULL)"; SQL statement:
+INSERT INTO QUESTIONS (QUESTION_ID, COURSE_URL, LEVEL, NOTES, QUESTION_NAME, ID, NOTES_ID)
+VALUES (RANDOM_UUID(), 'http://example.com/sql', 'Beginner', 'Basic SELECT statement question', 'What is the SELECT statement?', 1, 1) [22018-232]
+2025-12-05 14:30:39.535682+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1 (QUESTIONS: ""ID"" UUID NOT NULL)"; SQL statement:
+INSERT INTO QUESTIONS (QUESTION_ID, COURSE_URL, LEVEL, NOTES, QUESTION_NAME, ID, NOTES_ID)
+VALUES (RANDOM_UUID(), 'http://example.com/sql', 'Beginner', 'Basic SELECT statement question', 'What is the SELECT statement?', 1, 1) [22018-232]
+2025-12-05 14:30:39.742329+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1 (QUESTIONS: ""ID"" UUID NOT NULL)"; SQL statement:
+INSERT INTO QUESTIONS (QUESTION_ID, COURSE_URL, LEVEL, NOTES, QUESTION_NAME, ID, NOTES_ID)
+VALUES (RANDOM_UUID(), 'http://example.com/sql', 'Beginner', 'Basic SELECT statement question', 'What is the SELECT statement?', 1, 1) [22018-232]
+2025-12-05 14:30:39.990441+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1 (QUESTIONS: ""ID"" UUID NOT NULL)"; SQL statement:
+INSERT INTO QUESTIONS (QUESTION_ID, COURSE_URL, LEVEL, NOTES, QUESTION_NAME, ID, NOTES_ID)
+VALUES (RANDOM_UUID(), 'http://example.com/sql', 'Beginner', 'Basic SELECT statement question', 'What is the SELECT statement?', 1, 1) [22018-232]
+2025-12-05 14:31:01.080368+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1 (QUESTIONS: ""ID"" UUID NOT NULL)"; SQL statement:
+INSERT INTO QUESTIONS (QUESTION_ID, COURSE_URL, LEVEL, NOTES, QUESTION_NAME, ID, NOTES_ID)
+VALUES ('e762634c-3e41-11eb-b897-0862660ccbd4', 'http://example.com/sql', 'Beginner', 'Basic SELECT statement question', 'What is the SELECT statement?', 1, 1) [22018-232]
+2025-12-05 14:31:38.188817+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "103 (QUESTIONS: ""QUESTION_ID"" UUID NOT NULL)"; SQL statement:
+INSERT INTO QUESTIONS (QUESTION_ID, COURSE_URL, LEVEL, NOTES, QUESTION_NAME, ID, NOTES_ID)
+VALUES (103, 'http://example.com/java', 'Advanced', 'Inheritance question', 'Describe polymorphism in Java', 3, NULL) [22018-232]
+2025-12-06 21:35:46.783485+05:30 jdbc[346]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 16 more

@@ -3,9 +3,14 @@ package com.codeananta.CodeAnanta.Controllers;
 
 import com.codeananta.CodeAnanta.Models.Blog;
 import com.codeananta.CodeAnanta.Services.BlogService;
+import com.codeananta.CodeAnanta.Services.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -13,11 +18,13 @@ import org.springframework.web.bind.annotation.*;
 public class BlogController {
 
     private final BlogService blogService;
+    private final UploadService uploadService;
 
     @Autowired
-    public BlogController(BlogService blogService)
+    public BlogController(BlogService blogService, UploadService uploadService)
     {
         this.blogService = blogService;
+        this.uploadService = uploadService;
     }
 
     @GetMapping("/all")
@@ -31,4 +38,13 @@ public class BlogController {
     {
         return blogService.addBlog(blog);
     }
+
+    @PostMapping("/upload")
+    public ResponseEntity<?> uploadFile(@RequestParam("image") MultipartFile file)
+    {
+        Map data = uploadService.upload(file);
+
+        return new ResponseEntity<>(data, HttpStatusCode.valueOf(200));
+    }
+
 }

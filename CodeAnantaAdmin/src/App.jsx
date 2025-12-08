@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Blogs from './components/Blogs';
+import Course from './components/Courses/Course';
 
 function App() {
   
@@ -16,6 +17,10 @@ function App() {
     {
       path:"/Blogs",
       element:<><Navbar/><Blogs/></>
+    },
+    {
+      path:"/Courses",
+      element:<><Navbar/><Course/></>
     }
   ])
 
