@@ -55,4 +55,15 @@ public class BlogService {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "successfully added"));
     }
+
+    public ResponseEntity<?> deleteById(int id) {
+
+        if(blogRepo.existsById(id))
+        {
+            blogRepo.deleteById(id);
+            return ResponseEntity.status(HttpStatus.valueOf(200)).body(Map.of("message", "Deletion Successfully!"));
+        }
+
+        return ResponseEntity.status(HttpStatus.valueOf(400)).body(Map.of("message", "deletion failed"));
+    }
 }

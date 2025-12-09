@@ -14,7 +14,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
 public class BlogController {
 
     private final BlogService blogService;
@@ -47,4 +46,9 @@ public class BlogController {
         return new ResponseEntity<>(data, HttpStatusCode.valueOf(200));
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable int id)
+    {
+        return blogService.deleteById(id);
+    }
 }
