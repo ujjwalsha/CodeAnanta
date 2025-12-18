@@ -94,27 +94,36 @@ function Blogs() {
 
             <div className='all-blog flex  w-2/3 flex-col gap-5'>
                 {
-                    Blog.map((blog)=>(
-                        <div className='flex p-5 items-center justify-between bg-gray-900 rounded-sm gap-5' key={blog.id}>
-                            <p className=' text-gray-400'>{blog.id}</p>
-                            <h2 className=''>{blog.title}</h2>
-                            <p className='text-gray-400'>{blog.createdAt}</p>
 
-                            <div className='button h-fit flex gap-10 justify-end items-end'>
-                                <div className='flex w-xs justify-end  gap-10'>
-                                    <button className='cursor-pointer flex gap-2 items-center p-2 bg-purple-600'>
-                                        <UpdateIcon fontSize='medium'></UpdateIcon>Update
-                                    </button>
-                                    <button 
-                                        className='cursor-pointer flex gap-2 h-fit p-2 bg-purple-600'
-                                        onClick={() =>handleBlogId(blog.id)}
-                                    >
-                                        <DeleteForeverIcon fontSize='medium'></DeleteForeverIcon>Delete
-                                    </button>
+                    Blog.length ?
+                    (
+                            Blog.map((blog)=>(
+                            <div className='flex p-5 items-center justify-between bg-gray-900 rounded-sm gap-5' key={blog.id}>
+                                <p className=' text-gray-400'>{blog.id}</p>
+                                <h2 className=''>{blog.title}</h2>
+                                <p className='text-gray-400'>{blog.createdAt}</p>
+
+                                <div className='button h-fit flex gap-10 justify-end items-end'>
+                                    <div className='flex w-xs justify-end  gap-10'>
+                                        <button className='cursor-pointer flex gap-2 items-center p-2 bg-purple-600'>
+                                            <UpdateIcon fontSize='medium'></UpdateIcon>Update
+                                        </button>
+                                        <button 
+                                            className='cursor-pointer flex gap-2 h-fit p-2 bg-purple-600'
+                                            onClick={() =>handleBlogId(blog.id)}
+                                        >
+                                            <DeleteForeverIcon fontSize='medium'></DeleteForeverIcon>Delete
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))
+                        ))
+                    )
+                    :
+                    (
+                        <p>Don't have data</p>
+                    )
+                    
                 }
             </div>
 

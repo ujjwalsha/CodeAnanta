@@ -9,8 +9,10 @@ export default function BlogPage({seletedBlog}) {
     
   return (
     <div className='flex flex-col p-10 justify-center items-center'> 
-            <div className='link flex gap-5  w-4/5 underline text-gray-300 '>
-                <Link to="/" >Home <span>-</span></Link>
+            <div className='link flex w-4/5 gap-0.5 text-gray-300 '>
+                <Link to="/" className='hover:underline'>Home</Link>
+                <p>/</p>
+                <Link to="/Blogs" className='hover:underline'>Blogs</Link>
             </div>
 
             <div className='blog-page mt-10 flex justify-center gap-10 items-center flex-col'>
